@@ -65,6 +65,22 @@ void loop() {
 					if(Antrieb.GetMovement()==0)
 						Antrieb.Forward(100);
 					obstacle = UltrasonicFront.Scan();
+					switch (obstacle)
+					{
+					case 0: // Kein Hinderniss in Sicht
+						break; 
+					case 1: // nur Hinderniss vorne
+						break;
+					case 2: // auch Hinderniss links / rechts frei
+						break;
+					case 3: // auch Hinderniss rechts / links frei
+						break;
+					case 4: // eingeschlossen in Sackgasse links u. rechts Hinderniss 
+
+						break;
+					default:
+						break;
+					}
 
 
 					delay(1500);
