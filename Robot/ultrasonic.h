@@ -11,6 +11,10 @@
 class Ultrasonic {
 private:
 	int _triggerPin, _echoPin, _servoPin;
+	float _distance[3];
+
+	/* ermittelt die Entfernung */
+	float distance(void);
 	
 	public:
 		Ultrasonic(int TriggerPin, int EchoPin, int ServoPin);
