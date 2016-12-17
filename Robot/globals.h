@@ -1,5 +1,6 @@
 #pragma once
 
+
 #ifndef __GLOBALS_H__
 #define __GLOBALS_H__
 
@@ -38,7 +39,8 @@ enum Mode {AUTO, IR_REMOTE, STOP, OFF, GO_HOME, AT_HOME, CHARGING};
 #define US_FS_SERVO_PIN 3
 #define US_FS_TRIGGER_PIN 19 // UltraSonicFrontSensor
 #define US_FS_ECHO_PIN 18
-#define DANGER_RANGE 20.0   // ab welcher Entfernung in cm wird es gefaehrlich  ?
+#define SONIC_TIMEOUT 400  // millisikunden die wir maximal auf ein Echo warten, alles was grösser ist weit weg
+#define DANGER_RANGE 25.0  // ab welcher Entfernung in cm wird es gefaehrlich  ?
 
 /*************************************************************************/
 /********************* Crash-Sensoren ************************************/

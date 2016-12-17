@@ -6,7 +6,7 @@
 #define PAUSE 1000
 
 char incomingByte;
-int obstacle;
+int  obstacle;
 Mode modus = AUTO;
 
 Antrieb2Motor Antrieb(MOTOR_IN_1, MOTOR_IN_2, MOTOR_IN_ENA, MOTOR_IN_3, MOTOR_IN_4, MOTOR_IN_ENB);
@@ -64,22 +64,13 @@ void loop() {
 					obstacle = 0;
 					if(Antrieb.GetMovement()==0)
 						Antrieb.Forward(100);
-					obstacle = UltrasonicFront.Scan();
-					switch (obstacle)
+					if(UltrasonicFront.Scan())
 					{
-					case 0: // Kein Hinderniss in Sicht
-						break; 
-					case 1: // nur Hinderniss vorne
-						break;
-					case 2: // auch Hinderniss links / rechts frei
-						break;
-					case 3: // auch Hinderniss rechts / links frei
-						break;
-					case 4: // eingeschlossen in Sackgasse links u. rechts Hinderniss 
+						float left= 0.0,right = 0.0;
+						Antrieb.Stop();
+						UltrasonicFront.CheckLR(&left, &right);
+					
 
-						break;
-					default:
-						break;
 					}
 
 

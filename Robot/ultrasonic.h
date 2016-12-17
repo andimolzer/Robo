@@ -11,7 +11,7 @@
 class Ultrasonic {
 private:
 	int _triggerPin, _echoPin, _servoPin;
-	float _distance[3];
+	float _distance;
 
 	/* ermittelt die Entfernung */
 	float distance(void);
@@ -20,6 +20,8 @@ private:
 		Ultrasonic(int TriggerPin, int EchoPin, int ServoPin);
 		// scannt in gerader Linie (Servo 90°) und gibt 0/1 bei Hinderniss zurück
 		int Scan();
+
+		void CheckLR(float *_left, float *_right);
 
 };
 
