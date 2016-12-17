@@ -47,7 +47,7 @@ void loop() {
 		case 's':	Serial.println(incomingByte);
 					Serial.println("switching OFF");
 					Antrieb.Stop();
-					modus = OFF;
+					modus = STOP;
 					break;
 		case 'o':	Serial.println(incomingByte);
 					Serial.println("wer hat mich ausgeschalten ??????");

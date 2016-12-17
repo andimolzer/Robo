@@ -14,37 +14,37 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="src">
-      <UniqueIdentifier>{92bae556-695b-4173-92a6-3273ef2d944f}</UniqueIdentifier>
+      <UniqueIdentifier>{46a97910-e421-4cbe-a0cd-42c544d32856}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\_micro-api-readonly">
-      <UniqueIdentifier>{db59f055-a5f6-4dbb-b5e8-fff51cdc6d9d}</UniqueIdentifier>
+      <UniqueIdentifier>{89162ca0-3cd0-4291-9357-becb2c33d7a9}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\_micro-api-readonly\core">
-      <UniqueIdentifier>{102ea4c4-eb95-49a0-90f1-1e70e4241d74}</UniqueIdentifier>
+      <UniqueIdentifier>{d6dd3c7a-227a-4959-b905-3be2953e7dcb}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\_micro-api-readonly\variants">
-      <UniqueIdentifier>{490e1ee2-9bb9-4d68-9205-237af5553754}</UniqueIdentifier>
+      <UniqueIdentifier>{16923c82-650b-4d44-9aa8-b3599791e3ae}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\_micro-api-readonly\variants\mega">
-      <UniqueIdentifier>{58613e22-8c7f-41e9-ab57-0016c7cefbaa}</UniqueIdentifier>
+    <Filter Include="src\_micro-api-readonly\variants\eightanaloginputs">
+      <UniqueIdentifier>{e85c0c28-2525-48ec-8f71-ee6de7cb9443}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\_micro-api-readonly\libraries">
-      <UniqueIdentifier>{e7b364f6-adef-443e-a32d-57e66259807e}</UniqueIdentifier>
+      <UniqueIdentifier>{279f8ef5-2361-40b7-83a9-f3bd172b9fa3}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\_micro-api-readonly\libraries\Servo">
-      <UniqueIdentifier>{6490ac8f-7f81-48e7-9c69-36e4d8269e49}</UniqueIdentifier>
+      <UniqueIdentifier>{9815d151-4599-450f-b959-a627822e4faf}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\_micro-api-readonly\libraries\Servo\src">
-      <UniqueIdentifier>{26aa3974-2022-4e52-9b7a-89f07097e762}</UniqueIdentifier>
+      <UniqueIdentifier>{2f7e6151-5f32-48e0-a4ec-5df499646bb9}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\_micro-api-readonly\libraries\Servo\src\avr">
-      <UniqueIdentifier>{35d48209-a4e7-425d-ab43-ac95bc26a608}</UniqueIdentifier>
+      <UniqueIdentifier>{db4837cd-9243-45d4-8770-081c8812d21e}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\_micro-api-readonly\libraries\Servo\src\sam">
-      <UniqueIdentifier>{ca70bb31-4071-4cc0-97f5-0ff226f5f534}</UniqueIdentifier>
+      <UniqueIdentifier>{55be1f9c-1790-4d21-b8a9-39585e1e6197}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\_micro-api-readonly\libraries\Servo\src\samd">
-      <UniqueIdentifier>{1c56490f-9dce-4703-96bf-abd4b9e95535}</UniqueIdentifier>
+      <UniqueIdentifier>{ebeb3f43-50bf-4b95-b709-ca85a4ab3ca2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -120,8 +120,8 @@
     <ClInclude Include="C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\WString.h">
       <Filter>src\_micro-api-readonly\core</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Program Files (x86)\Arduino\hardware\arduino\avr\variants\mega\pins_arduino.h">
-      <Filter>src\_micro-api-readonly\variants\mega</Filter>
+    <ClInclude Include="C:\Program Files (x86)\Arduino\hardware\arduino\avr\variants\eightanaloginputs\pins_arduino.h">
+      <Filter>src\_micro-api-readonly\variants\eightanaloginputs</Filter>
     </ClInclude>
     <ClInclude Include="C:\Program Files (x86)\Arduino\libraries\Servo\src\Servo.h">
       <Filter>src\_micro-api-readonly\libraries\Servo\src</Filter>
