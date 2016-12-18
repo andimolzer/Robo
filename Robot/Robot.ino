@@ -1,3 +1,4 @@
+#include "functions.h"
 #include <servo.h>
 #include "ultrasonic.h"
 #include "Antrieb2Motor.h"
@@ -108,9 +109,11 @@ void loop() {
 					delay(1500);
 					break;
 	case GO_HOME:	Serial.println("on my Way home");
+					Antrieb.Stop();
 					delay(1500);
 					break;
 	case IR_REMOTE: Serial.println("ich bin Sklave einer Fernbedienung");
+					
 					delay(1500);
 					break;
 	case OFF:		Serial.println("ich steh da und fadisiere mich .....");

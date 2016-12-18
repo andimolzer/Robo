@@ -7,8 +7,8 @@
 #define DEBUG /* Debugging ON/OFF */
 
 #ifdef DEBUG
-#define DEBUG_PRINT(x)  Serial.print(x)
-#define DEBUG_PRINTLN(x)  Serial.println(x)
+#define DEBUG_PRINT(x)  Serial.print(x); Serial1.print(x)
+#define DEBUG_PRINTLN(x)  Serial.println(x); Serial1.println(x)
 #else
 #define DEBUG_PRINT(x)
 #define DEBUG_PRINTLN(x)

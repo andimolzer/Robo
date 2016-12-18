@@ -135,6 +135,9 @@
     <ClInclude Include="C:\Program Files (x86)\Arduino\libraries\Servo\src\samd\ServoTimers.h">
       <Filter>src\_micro-api-readonly\libraries\Servo\src\samd</Filter>
     </ClInclude>
+    <ClInclude Include="functions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Antrieb2Motor.cpp">
@@ -226,6 +229,9 @@
     </ClCompile>
     <ClCompile Include="C:\Program Files (x86)\Arduino\libraries\Servo\src\samd\Servo.cpp">
       <Filter>src\_micro-api-readonly\libraries\Servo\src\samd</Filter>
+    </ClCompile>
+    <ClCompile Include="functions.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
