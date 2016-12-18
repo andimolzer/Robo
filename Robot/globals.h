@@ -24,32 +24,32 @@ enum Mode {AUTO, IR_REMOTE, STOP, OFF, GO_HOME, AT_HOME, CHARGING};
 /**************************************************************************/
 
 /* Pins fuer linken/rechten Motor */
-#define MOTOR_IN_1  6
-#define MOTOR_IN_2  7
-#define MOTOR_IN_3  8
-#define MOTOR_IN_4  9
-#define MOTOR_IN_ENA  5    /* muss PWM sein */
-#define MOTOR_IN_ENB  11   /* muss PWM sein */
+#define MOTOR_IN_1  3
+#define MOTOR_IN_2  4
+#define MOTOR_IN_3  5
+#define MOTOR_IN_4  6
+#define MOTOR_IN_ENA  7    /* muss PWM sein */
+#define MOTOR_IN_ENB  8   /* muss PWM sein */
 #define MIN_PWM 80     /* Minimalwert PWM bevor Motor stehen bleibt */
 #define MAX_PWM 255    /* Maximalgeschwindigkeit PWM                */
-#define TIME_90DEGREE 180 /* zeit in Millisekunden die ca. für eine 90° Kurve benötigt wird */
+#define TIME_90DEGREE 500 /* zeit in Millisekunden die ca. für eine 90° Kurve benötigt wird */
 
 /*************************************************************************/
 /********************** Ultraschallsensor auf Servo **********************/
 /*************************************************************************/
-#define US_FS_SERVO_PIN 3
-#define US_FS_TRIGGER_PIN 19 // UltraSonicFrontSensor
-#define US_FS_ECHO_PIN 18
+#define US_FS_SERVO_PIN 2
+#define US_FS_TRIGGER_PIN 9 // UltraSonicFrontSensor
+#define US_FS_ECHO_PIN 10
 #define SONIC_TIMEOUT 400  // millisikunden die wir maximal auf ein Echo warten, alles was grösser ist weit weg
 #define DANGER_RANGE 25.0  // ab welcher Entfernung in cm wird es gefaehrlich  ?
 
 /*************************************************************************/
 /********************* Crash-Sensoren ************************************/
 /*************************************************************************/
-#define C_SENSOR_LV 14
-#define C_SENSOR_RV 15
-#define C_SENSOR_LH 16
-#define C_SENSOR_RH 17
+#define C_SENSOR_LV 22
+#define C_SENSOR_RV 23
+#define C_SENSOR_LH 24
+#define C_SENSOR_RH 25
 
 #endif // __GLOBALS_H__
 

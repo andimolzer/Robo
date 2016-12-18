@@ -15,6 +15,7 @@ Ultrasonic UltrasonicFront(US_FS_TRIGGER_PIN, US_FS_ECHO_PIN, US_FS_SERVO_PIN);
 // the setup function runs once when you press reset or power the board
 void setup() {
 	Serial.begin(19200);
+	Serial1.begin(9600);
 	Antrieb.Stop();
 	obstacle = 0;
 	randomSeed(analogRead(0)); /* Zufallsgenerator starten */ 

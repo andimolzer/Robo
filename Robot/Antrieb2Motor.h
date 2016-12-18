@@ -28,8 +28,10 @@ public:
 	void Stop();
 	// Linksturn
 	void TurnLeft(int millisec);
-	// Rechtsturn
+		// Rechtsturn
 	void TurnRight(int millisec);
+	// Geswindigkeit setzen
+	void SetSpeed(int newspeed);
 	// gibt den aktuellen Bewegungsstatus retour
 	int GetMovement(void);
 };

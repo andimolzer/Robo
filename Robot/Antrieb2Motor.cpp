@@ -49,20 +49,26 @@ void Antrieb2Motor::TurnLeft(int millisec=360)
 {
 	DEBUG_PRINT("Turn Links: ");
 	DEBUG_PRINTLN(millisec);
-	int speedLeft = LMotor.getSpeedPerc();
-	LMotor.Break();
+	this->Stop();
+	RMotor.Forward(100);
 	delay(millisec);
-	LMotor.SetSpeed(speedLeft);
+	this->Stop();
 }
 
 void Antrieb2Motor::TurnRight(int millisec=360)
 {
-	DEBUG_PRINT("Turn Links: ");
+	DEBUG_PRINT("Turn Rechts: ");
 	DEBUG_PRINTLN(millisec);
-	int speedRight = RMotor.getSpeedPerc();
-	RMotor.Break();
+	this->Stop();
+	LMotor.Forward(100);
 	delay(millisec);
-	RMotor.SetSpeed(speedRight);
+	this->Stop();
+}
+
+void Antrieb2Motor::SetSpeed(int newspeed)
+{
+	LMotor.SetSpeed(newspeed);
+	RMotor.SetSpeed(newspeed);
 }
 
 int Antrieb2Motor::GetMovement(void)

@@ -23,6 +23,8 @@ L298::L298(int IN1, int IN2, int ENA)
 	pinMode(_IN1, OUTPUT);
 	pinMode(_IN2, OUTPUT);
 	pinMode(_ENA, OUTPUT);
+	this->Break();
+	this->EnableMotor();
 }
 
 void L298::SetPins(int IN1, int IN2, int ENA) {
@@ -38,14 +40,14 @@ void L298::SetPins(int IN1, int IN2, int ENA) {
 // Aktiviert den Motortreiber
 void L298::EnableMotor()
 {
-	
+	pinMode(_ENA, HIGH);
 }
 
 
 // Setzt den Motortreiber inaktiv
 void L298::DisableMotor()
 {
-	
+	pinMode(_ENA, LOW);
 }
 
 
