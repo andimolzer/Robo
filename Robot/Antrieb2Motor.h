@@ -27,9 +27,9 @@ public:
 	// Motor blockieren
 	void Stop();
 	// Linksturn
-	void TurnLeft(int millisec=360);
+	void TurnLeft(int millisec);
 	// Rechtsturn
-	void TurnRight(int millisec=360);
+	void TurnRight(int millisec);
 	// gibt den aktuellen Bewegungsstatus retour
 	int GetMovement(void);
 };

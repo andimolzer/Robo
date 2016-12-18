@@ -32,6 +32,7 @@ enum Mode {AUTO, IR_REMOTE, STOP, OFF, GO_HOME, AT_HOME, CHARGING};
 #define MOTOR_IN_ENB  11   /* muss PWM sein */
 #define MIN_PWM 80     /* Minimalwert PWM bevor Motor stehen bleibt */
 #define MAX_PWM 255    /* Maximalgeschwindigkeit PWM                */
+#define TIME_90DEGREE 180 /* zeit in Millisekunden die ca. für eine 90° Kurve benötigt wird */
 
 /*************************************************************************/
 /********************** Ultraschallsensor auf Servo **********************/

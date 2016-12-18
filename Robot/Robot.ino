@@ -1,4 +1,4 @@
-#include <Servo.h>
+#include <servo.h>
 #include "ultrasonic.h"
 #include "Antrieb2Motor.h"
 
@@ -66,10 +66,40 @@ void loop() {
 						Antrieb.Forward(100);
 					if(UltrasonicFront.Scan())
 					{
-						float left= 0.0,right = 0.0;
+						int escapeRoute = 0;
 						Antrieb.Stop();
-						UltrasonicFront.CheckLR(&left, &right);
+						escapeRoute=UltrasonicFront.CheckLR();
 					
+						switch (escapeRoute) {
+						case 1: Antrieb.TurnLeft((int)TIME_90DEGREE / random(1, 3));
+							while(UltrasonicFront.Scan())
+								Antrieb.TurnLeft((int)TIME_90DEGREE / random(1, 3));
+							Antrieb.Forward(100);
+							break;
+						case 2: Antrieb.TurnRight((int)TIME_90DEGREE / random(1, 3));
+							while (UltrasonicFront.Scan())
+								Antrieb.TurnRight((int)TIME_90DEGREE / random(1, 3));
+							Antrieb.Forward(100);
+							break;
+						case 3: Antrieb.Backward(50);
+							while (UltrasonicFront.CheckLR() == 3)
+								delay(500);
+							Antrieb.Stop();
+							escapeRoute = UltrasonicFront.CheckLR();
+							switch (escapeRoute) {
+							case 1: Antrieb.TurnLeft((int)TIME_90DEGREE / random(1, 3));
+								while (UltrasonicFront.Scan())
+									Antrieb.TurnLeft((int)TIME_90DEGREE / random(1, 3));
+								Antrieb.Forward(100);
+								break;
+							case 2: Antrieb.TurnRight((int)TIME_90DEGREE / random(1, 3));
+								while (UltrasonicFront.Scan())
+									Antrieb.TurnRight((int)TIME_90DEGREE / random(1, 3));
+								Antrieb.Forward(100);
+								break;
+							}
+							break;
+						}
 
 					}
 
@@ -87,6 +117,7 @@ void loop() {
 					break;
 	case AT_HOME:   break; // in Ladestation .... soll er weiter mähen nachher, oder wurde er geschickt ?
 	case CHARGING:  break; // ladet Akku
+	case STOP:		break;
 	}
 
 

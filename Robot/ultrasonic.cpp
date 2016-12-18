@@ -19,6 +19,8 @@ Ultrasonic::Ultrasonic(int TriggerPin, int EchoPin, int ServoPin)
 	_triggerPin = TriggerPin;
 	_echoPin = EchoPin;
 	_servoPin = ServoPin;
+	_servo.attach(_servoPin);
+	_servo.write(90);
 	pinMode(_triggerPin, OUTPUT);
 	pinMode(_echoPin, INPUT);
 	pinMode(_servoPin, OUTPUT);
@@ -26,27 +28,32 @@ Ultrasonic::Ultrasonic(int TriggerPin, int EchoPin, int ServoPin)
 
 int Ultrasonic::Scan()
 {	
-	int gefahrenstufe = 0;
 	_distance = 0.0;
 	_distance = this->distance();
 	if(_distance== 0.0)
 		return 0;
-	if (_distance <= DANGER_RANGE) {
-		gefahrenstufe = 1;
-		// Da Servo nach links drehen
-		_distance = this->distance();
-		if (_distance <= DANGER_RANGE) 
-			gefahrenstufe++;
-		// Da Servo nach rechts drehen
-		_distance = this->distance();
-		if (_distance <= DANGER_RANGE)
-			gefahrenstufe+=2;
-	}
-	return gefahrenstufe;
+	if (_distance <= DANGER_RANGE)
+		return 1;
+	return 1;
 }
 
-void Ultrasonic::CheckLR(float * _left, float * _right)
+int Ultrasonic::CheckLR()
 {
-	/********************************************************/
-	return;
+	int left, right;
+	_servo.write(180);
+	delay(500);
+	left=(int)this->distance();
+	_servo.write(0);
+	delay(500);
+	right=(int)this->distance();
+	_servo.write(90);
+	if (left == 0 && right == 0)
+		return random(1, 2);
+	if (left !=0 && right !=0)
+		return 3;
+	if (left > right)
+		return 1;
+	else
+		return 2;
+	return 0;
 }
