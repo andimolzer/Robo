@@ -1,5 +1,4 @@
 // ultrasonic.h
-
 #ifndef _ULTRASONIC_h
 #define _ULTRASONIC_h
 
