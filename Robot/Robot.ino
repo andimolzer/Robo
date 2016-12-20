@@ -3,7 +3,6 @@
 #include "ultrasonic.h"
 #include "Antrieb2Motor.h"
 
-
 #define PAUSE 1000
 
 char incomingByte;

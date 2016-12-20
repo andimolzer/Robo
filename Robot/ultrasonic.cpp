@@ -1,7 +1,6 @@
 #include <servo.h>
 #include "ultrasonic.h"
 #include "globals.h"
-
 float Ultrasonic::distance(void)
 {
 	float dist = 0.0;
