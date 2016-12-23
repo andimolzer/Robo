@@ -1,17 +1,13 @@
 #pragma once
 #ifndef _L298_H
 #define _L298_H
-
 #include "globals.h"
-
-
-
 
 class L298
 {
 public:
-	L298();
 	L298(int IN1, int IN2, int ENA);
+	L298();
 
 private:
 	int _IN1;
@@ -19,12 +15,14 @@ private:
 	int _ENA;
 	int _speedPWM;
 	int _speedPerc;
+	int _rpm;
 	
 public:
-	void SetPins(int IN1, int IN2, int ENA);
+	// PINs für Motor festlegen
+	void setPins(int IN1, int IN2, int ENA);
 	// Aktiviert den Motortreiber
 	void EnableMotor();
-	// Setzt den Motortreiber inaktiv
+	// setzt den Motortreiber inaktiv
 	void DisableMotor();
 	// Bewegung vorwaerts
 	void Forward();
@@ -39,7 +37,11 @@ public:
 	// // Motor auslaufen lassen ohne zu Bremsen
 	void Rollout();
 	// Geschwindikeit setzen in % (0 .. 100)
-	int SetSpeed(int speed);
+	void setSpeedPerc(int speedPerc);
+	// Geschwindigkeit setzen in PWM 
+	void setSpeedPWM(int speedPWM);
+	// Drehzahl des Motor setzen
+	int setRPM(int rpm);
 
 
 	// gibt den maximalen zu verwendeten PWM-Wert retour
@@ -50,6 +52,10 @@ public:
 	int getSpeedPWM(void);
 	// gibt aktuellen Procentwert der Geschwindigkeit zurueck
 	int getSpeedPerc(void);
+	// gibt die Motordrezahl zurueck
+	int getRPM(void);
+
+	
 };
 
 #endif // !_L298_H

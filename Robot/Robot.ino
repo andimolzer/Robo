@@ -1,7 +1,9 @@
-#include "functions.h"
-#include <servo.h>
-#include "ultrasonic.h"
+
+#include "doRobot.h"
+#include "globals.h"
 #include "Antrieb2Motor.h"
+#include "ultrasonic.h"
+#include <Servo.h>
 
 #define PAUSE 1000
 
@@ -19,7 +21,6 @@ void setup() {
 	Antrieb.Stop();
 	obstacle = 0;
 	randomSeed(analogRead(0)); /* Zufallsgenerator starten */ 
-
 }
 
 // the loop function runs over and over again forever
@@ -63,7 +64,7 @@ void loop() {
 	switch (modus) {
 	case AUTO:		DEBUG_PRINTLN("im AutomatikModus");
 					obstacle = 0;
-					if(Antrieb.GetMovement()==0)
+					if(Antrieb.getStatus()==0)
 						Antrieb.Forward(100);
 					if(UltrasonicFront.Scan())
 					{
@@ -103,8 +104,6 @@ void loop() {
 						}
 
 					}
-
-
 					delay(1500);
 					break;
 	case GO_HOME:	Serial.println("on my Way home");

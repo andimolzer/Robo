@@ -32,19 +32,19 @@
       <UniqueIdentifier>{612b920b-9d17-4c2a-aa5a-c8f30fcf3add}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\_micro-api-readonly\libraries\Servo">
-      <UniqueIdentifier>{7b785f25-369c-47ab-8605-ad0ad2b6f8b3}</UniqueIdentifier>
+      <UniqueIdentifier>{afd8a5b6-3f99-4030-b9ed-4f5662632eee}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\_micro-api-readonly\libraries\Servo\src">
-      <UniqueIdentifier>{aaa04af8-79b0-41a4-a65a-0050b0de83fd}</UniqueIdentifier>
+      <UniqueIdentifier>{6d6b744e-5f79-4940-a061-54d3ba1bebd5}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\_micro-api-readonly\libraries\Servo\src\avr">
-      <UniqueIdentifier>{e5e5a2f9-2ec5-435a-bd80-959a352fbd63}</UniqueIdentifier>
+      <UniqueIdentifier>{ea51715d-7b5d-43fe-9334-ab5019173ddf}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\_micro-api-readonly\libraries\Servo\src\sam">
-      <UniqueIdentifier>{0a237357-775a-4118-bc40-a7a8e8facae5}</UniqueIdentifier>
+      <UniqueIdentifier>{dc4c55e2-7a8d-4010-ba21-e30816eaea8f}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\_micro-api-readonly\libraries\Servo\src\samd">
-      <UniqueIdentifier>{ae60bf24-2879-41e8-ac8e-a5f18d93abc5}</UniqueIdentifier>
+      <UniqueIdentifier>{e9aea0fc-3e3a-4c47-a69c-0a6857c65b3f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -123,6 +123,9 @@
     <ClInclude Include="C:\Program Files (x86)\Arduino\hardware\arduino\avr\variants\mega\pins_arduino.h">
       <Filter>src\_micro-api-readonly\variants\mega</Filter>
     </ClInclude>
+    <ClInclude Include="functions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="C:\Program Files (x86)\Arduino\libraries\Servo\src\Servo.h">
       <Filter>src\_micro-api-readonly\libraries\Servo\src</Filter>
     </ClInclude>
@@ -135,7 +138,7 @@
     <ClInclude Include="C:\Program Files (x86)\Arduino\libraries\Servo\src\samd\ServoTimers.h">
       <Filter>src\_micro-api-readonly\libraries\Servo\src\samd</Filter>
     </ClInclude>
-    <ClInclude Include="functions.h">
+    <ClInclude Include="doRobot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -221,6 +224,9 @@
     <ClCompile Include="C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\WString.cpp">
       <Filter>src\_micro-api-readonly\core</Filter>
     </ClCompile>
+    <ClCompile Include="functions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Program Files (x86)\Arduino\libraries\Servo\src\avr\Servo.cpp">
       <Filter>src\_micro-api-readonly\libraries\Servo\src\avr</Filter>
     </ClCompile>
@@ -230,15 +236,15 @@
     <ClCompile Include="C:\Program Files (x86)\Arduino\libraries\Servo\src\samd\Servo.cpp">
       <Filter>src\_micro-api-readonly\libraries\Servo\src\samd</Filter>
     </ClCompile>
-    <ClCompile Include="functions.cpp">
+    <ClCompile Include="doRobot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Robot.ino" />
     <None Include="C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring_pulse.S">
       <Filter>src\_micro-api-readonly\core</Filter>
     </None>
+    <None Include="Robot.ino" />
     <None Include="C:\Program Files (x86)\Arduino\libraries\Servo\library.properties">
       <Filter>src\_micro-api-readonly\libraries\Servo</Filter>
     </None>

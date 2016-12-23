@@ -7,6 +7,9 @@
 #else
 	#include "WProgram.h"
 #endif
+
+#include <Servo.h>
+
 class Ultrasonic {
 private:
 	int _triggerPin, _echoPin, _servoPin;

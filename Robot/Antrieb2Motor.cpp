@@ -4,8 +4,8 @@
 
 Antrieb2Motor::Antrieb2Motor(int L_IN1, int L_IN2, int L_ENA, int R_IN1, int R_IN2, int R_ENA)
 {
-	LMotor.SetPins(L_IN1, L_IN2, L_ENA);
-	RMotor.SetPins(R_IN1, R_IN2, R_ENA);
+	LMotor.setPins(L_IN1, L_IN2, L_ENA);
+	RMotor.setPins(R_IN1, R_IN2, R_ENA);
 }
 
 Antrieb2Motor::~Antrieb2Motor()
@@ -65,13 +65,15 @@ void Antrieb2Motor::TurnRight(int millisec=360)
 	this->Stop();
 }
 
-void Antrieb2Motor::SetSpeed(int newspeed)
+void Antrieb2Motor::setSpeed(int newspeed)
 {
-	LMotor.SetSpeed(newspeed);
-	RMotor.SetSpeed(newspeed);
+	DEBUG_PRINT("set Speed: ");
+	DEBUG_PRINTLN(newspeed);
+	LMotor.setSpeedPerc(newspeed);
+	RMotor.setSpeedPerc(newspeed);
 }
 
-int Antrieb2Motor::GetMovement(void)
+int Antrieb2Motor::getStatus(void)
 {
 	return _status;
 }
