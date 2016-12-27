@@ -1,5 +1,7 @@
 #ifndef __GLOBALS_H__
 #define __GLOBALS_H__
+//#include "Antrieb2Motor.h";
+//#include "ultrasonic.h";
 
 #define DEBUG /* Debugging ON/OFF */
 
@@ -53,7 +55,6 @@ enum Mode {AUTO, IR_REMOTE, STOP, OFF, GO_HOME, AT_HOME, CHARGING};
 #define C_SENSOR_RV 23
 #define C_SENSOR_LH 24
 #define C_SENSOR_RH 25
-
 
 #endif // __GLOBALS_H__
 

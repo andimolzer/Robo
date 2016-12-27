@@ -1,9 +1,8 @@
-
 #include "doRobot.h"
 #include "globals.h"
 #include "Antrieb2Motor.h"
 #include "ultrasonic.h"
-#include <Servo.h>
+// #include <Servo.h>
 
 #define PAUSE 1000
 
@@ -25,41 +24,50 @@ void setup() {
 
 // the loop function runs over and over again forever
 void loop() {
-	
+
+	incomingByte = 0;
+
 	if (Serial.available() > 0) {
-		// read the incoming byte:
 		incomingByte = Serial.read();
+	}
+
+	if (Serial1.available() > 0) {
+		incomingByte = Serial.read();
+	}
+
+	if (incomingByte != 0) {
 		switch (incomingByte)
 		{
-		case 'a' :	Serial.println(incomingByte);
-					Serial.println("switching to Automatic");
-					Antrieb.Stop();
-					modus = AUTO;
-					break;
+		case 'a':	Serial.println(incomingByte);
+			Serial.println("switching to Automatic");
+			Antrieb.Stop();
+			modus = AUTO;
+			break;
 		case 'h':	Serial.println(incomingByte);
-					Serial.println("going Home");
-					Antrieb.Stop();
-					modus = GO_HOME;
-					break;
+			Serial.println("going Home");
+			Antrieb.Stop();
+			modus = GO_HOME;
+			break;
 		case 'i':	Serial.println(incomingByte);
-					Serial.println("switching Remotecontrol");
-					Antrieb.Stop();
-					modus = IR_REMOTE;
-					break;
+			Serial.println("switching Remotecontrol");
+			Antrieb.Stop();
+			modus = IR_REMOTE;
+			break;
 		case 's':	Serial.println(incomingByte);
-					Serial.println("switching OFF");
-					Antrieb.Stop();
-					modus = STOP;
-					break;
+			Serial.println("switching OFF");
+			Antrieb.Stop();
+			modus = STOP;
+			break;
 		case 'o':	Serial.println(incomingByte);
-					Serial.println("wer hat mich ausgeschalten ??????");
-					Antrieb.Stop();
-					modus = OFF;
-					break;
+			Serial.println("wer hat mich ausgeschalten ??????");
+			Antrieb.Stop();
+			modus = OFF;
+			break;
 		default:
-					break;
+			break;
 		}
 	}
+
 
 	switch (modus) {
 	case AUTO:		DEBUG_PRINTLN("im AutomatikModus");
@@ -106,6 +114,7 @@ void loop() {
 					}
 					delay(1500);
 					break;
+
 	case GO_HOME:	Serial.println("on my Way home");
 					Antrieb.Stop();
 					delay(1500);
