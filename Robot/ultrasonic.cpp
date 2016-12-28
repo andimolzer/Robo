@@ -1,16 +1,11 @@
 #include <servo.h>
 #include "ultrasonic.h"
-#include "globals.h"
-float Ultrasonic::distance(void)
+
+
+
+
+Ultrasonic::Ultrasonic()
 {
-	float dist = 0.0;
-	digitalWrite(_triggerPin,LOW);
-	delayMicroseconds(2);
-	digitalWrite(_triggerPin, HIGH);
-	delayMicroseconds(20);
-	digitalWrite(_triggerPin, LOW);
-	dist=pulseIn(_echoPin, HIGH, SONIC_TIMEOUT) / 58;
-	return (float)dist;
 }
 
 Ultrasonic::Ultrasonic(int TriggerPin, int EchoPin, int ServoPin)
@@ -25,13 +20,37 @@ Ultrasonic::Ultrasonic(int TriggerPin, int EchoPin, int ServoPin)
 	pinMode(_servoPin, OUTPUT);
 }
 
-int Ultrasonic::Scan()
+void Ultrasonic::setPins(const int TriggerPin, const int EchoPin, const int ServoPin)
+{
+	_triggerPin = TriggerPin;
+	_echoPin = EchoPin;
+	_servoPin = ServoPin;
+	_servo.attach(_servoPin);
+	_servo.write(90);
+	pinMode(_triggerPin, OUTPUT);
+	pinMode(_echoPin, INPUT);
+	pinMode(_servoPin, OUTPUT);
+}
+
+float Ultrasonic::distance(void)
+{
+	float dist = 0.0;
+	digitalWrite(_triggerPin, LOW);
+	delayMicroseconds(2);
+	digitalWrite(_triggerPin, HIGH);
+	delayMicroseconds(20);
+	digitalWrite(_triggerPin, LOW);
+	dist = pulseIn(_echoPin, HIGH, SONIC_TIMEOUT) / 58;
+	return (float)dist;
+}
+
+int Ultrasonic::Scan(void)
 {	
-	_distance = 0.0;
-	_distance = this->distance();
-	if(_distance== 0.0)
+	float distance = 0.0;
+	distance = this->distance();
+	if(distance == 0.0)
 		return 0;
-	if (_distance <= DANGER_RANGE)
+	if (distance <= DANGER_RANGE)
 		return 1;
 	return 1;
 }

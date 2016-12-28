@@ -2,7 +2,9 @@
 
 #ifndef _DOROBOT_h
 #define _DOROBOT_h
-
+#include "Antrieb2Motor.h"
+#include "ultrasonic.h"
+#include "globals.h"
 #if defined(ARDUINO) && ARDUINO >= 100
 	#include "arduino.h"
 #else
@@ -11,11 +13,23 @@
 
 class DoRobot
 {
- protected:
+	protected:
+		enum Mode { AUTO, BT_REMOTE, STOP, OFF, GO_HOME, AT_HOME, CHARGING };
 
+	private:
+		char incomingByte;
+		Mode modus;
+		Antrieb2Motor Vorderachse; // Antriebsachse
+		Ultrasonic FrontSensor;
 
- public:
-	void init();
+		char CheckSerial();
+
+		void ModeRemotecontrol();
+
+	public:
+		DoRobot();
+		void init();
+		void run();
 };
 
 

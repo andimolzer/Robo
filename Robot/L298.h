@@ -18,44 +18,51 @@ private:
 	int _rpm;
 	
 public:
-	// PINs für Motor festlegen
-	void setPins(int IN1, int IN2, int ENA);
+
 	// Aktiviert den Motortreiber
 	void EnableMotor();
 	// setzt den Motortreiber inaktiv
 	void DisableMotor();
+
+
 	// Bewegung vorwaerts
 	void Forward();
 	// Forwaerts mit Speedangabe in % (0..100)
-	void Forward(int speed);
+	void Forward(const int speed);
 	// Rueckwaerts
 	void Backward();
 	// Rueckwaerts mit Speedangabe in % (0..100) 
-	void Backward(int speed);
+	void Backward(const int speed);
 	// sofortiger Motorstopp
 	void Break();
 	// // Motor auslaufen lassen ohne zu Bremsen
 	void Rollout();
+
+
+
+	// PINs für Motor festlegen
+	void setPins(const int IN1, const int IN2, const int ENA);
 	// Geschwindikeit setzen in % (0 .. 100)
-	void setSpeedPerc(int speedPerc);
+	void setSpeedPerc(const int speedPerc);
 	// Geschwindigkeit setzen in PWM 
-	void setSpeedPWM(int speedPWM);
+	void setSpeedPWM(const int speedPWM);
 	// Drehzahl des Motor setzen
-	int setRPM(int rpm);
+	int setRPM(const int rpm);
+
 
 
 	// gibt den maximalen zu verwendeten PWM-Wert retour
-	int getMaxPWM(void);
+	int getMaxPWM(void) const;
 	// gibt den minimalen zu verwendeten PWM-Wert retour
-	int getMinPWM(void);
+	int getMinPWM(void) const;
 	// gibt aktuellen PWM-Wert retour
-	int getSpeedPWM(void);
+	int getSpeedPWM(void) const;
 	// gibt aktuellen Procentwert der Geschwindigkeit zurueck
-	int getSpeedPerc(void);
+	int getSpeedPerc(void) const;
 	// gibt die Motordrezahl zurueck
-	int getRPM(void);
+	int getRPM(void) const;
 
-	
+
 };
 
 #endif // !_L298_H

@@ -9,6 +9,7 @@ class Antrieb2Motor
 public:
 	enum movement { STOP, FORWARD, BACKWARD };
 	Antrieb2Motor(int L_IN1,int L_IN2, int L_ENA, int R_IN1, int R_IN2, int R_ENA);
+	Antrieb2Motor();
 	~Antrieb2Motor();
 
 private:
@@ -16,6 +17,7 @@ private:
 	movement _status;
 
 public:
+	void setPins(const int L_IN1,const int L_IN2,const int L_ENA,const int R_IN1,const int R_IN2,const int R_ENA);
 	// gerade Vorwaerts
 	void Forward(int speed);
 	// gerade Rueckwaerts

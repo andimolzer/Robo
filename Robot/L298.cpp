@@ -3,7 +3,7 @@
 #include <Arduino.h>
 
 // Constructor fuer Motortreiber
-L298::L298() { };
+L298::L298() { }
 
 L298::L298(int IN1, int IN2, int ENA)
 {
@@ -17,17 +17,7 @@ L298::L298(int IN1, int IN2, int ENA)
 	this->EnableMotor();
 }
 
-void L298::setPins(int IN1, int IN2, int ENA)
-{
-	_IN1 = IN1;
-	_IN2 = IN2;
-	_ENA = ENA;
-	pinMode(_IN1, OUTPUT);
-	pinMode(_IN2, OUTPUT);
-	pinMode(_ENA, OUTPUT);
-	this->Break();
-	this->EnableMotor();
-}
+
 
 // Aktiviert den Motortreiber
 void L298::EnableMotor()
@@ -46,7 +36,7 @@ void L298::Forward()
 	digitalWrite(_IN2, LOW);
 }
 // Forwaerts mit Speedangabe in % (0..100)
-void L298::Forward(int speed)
+void L298::Forward(const int speed)
 {
 	digitalWrite(_IN1, HIGH);
 	digitalWrite(_IN2, LOW);
@@ -59,7 +49,7 @@ void L298::Backward()
 	digitalWrite(_IN2, HIGH);
 }
 // Rueckwaerts mit Speedangabe in % (0..100) 
-void L298::Backward(int speed)
+void L298::Backward(const int speed)
 {
 	digitalWrite(_IN1, LOW);
 	digitalWrite(_IN2, HIGH);
@@ -78,8 +68,22 @@ void L298::Rollout()
 	digitalWrite(_IN1, LOW);
 	digitalWrite(_IN2, LOW);
 }
-// Geschwindikeit setzen in % (0 .. 100)
-void L298::setSpeedPerc(int speed)
+
+
+///////////////////// SETTER //////////////////////////////////
+void L298::setPins(const int IN1, const int IN2, const int ENA)
+{
+	_IN1 = IN1;
+	_IN2 = IN2;
+	_ENA = ENA;
+	pinMode(_IN1, OUTPUT);
+	pinMode(_IN2, OUTPUT);
+	pinMode(_ENA, OUTPUT);
+	this->Break();
+	this->EnableMotor();
+}
+// Geschwindigkeit setzen in % (0 .. 100)
+void L298::setSpeedPerc(const int speed)
 {
 	DEBUG_PRINT("in setSpeed: "); DEBUG_PRINTLN(speed);
 	if (speed >= 0 && speed <= 100 && speed!=_speedPerc) {
@@ -90,31 +94,12 @@ void L298::setSpeedPerc(int speed)
 		DEBUG_PRINT("_speedPerc: "); DEBUG_PRINTLN(_speedPerc);
 	}
 }
-void L298::setSpeedPWM(int speedPWM)
+// Geschwindigkeit setzen in PWM
+void L298::setSpeedPWM(const int speedPWM)
 {
 
 }
-
-//////////////////////// INFO /////////////////////////////
-int L298::getMaxPWM(void) {
-	return MAX_PWM;
-}
-
-int L298::getMinPWM(void) {
-	return MIN_PWM;
-}
-
-int L298::getSpeedPerc(void) {
-	return _speedPerc;
-}
-
-int L298::getRPM()
-{
-    /* noch zu erledigen */
-	return _rpm;
-}
-
-int L298::setRPM(int rpm)
+int L298::setRPM(const int rpm)
 {
 	int currentRPM = this->getRPM();
 	while (currentRPM < rpm)
@@ -125,6 +110,26 @@ int L298::setRPM(int rpm)
 	return 0;
 }
 
-int L298::getSpeedPWM(void) {
+
+//////////////////////// GETTER /////////////////////////////
+int L298::getMaxPWM(void) const {
+	return MAX_PWM;
+}
+
+int L298::getMinPWM(void) const {
+	return MIN_PWM;
+}
+
+int L298::getSpeedPerc(void) const {
+	return _speedPerc;
+}
+
+int L298::getRPM(void) const
+{
+    /* noch zu erledigen */
+	return _rpm;
+}
+
+int L298::getSpeedPWM(void) const {
 	return _speedPWM;
 }

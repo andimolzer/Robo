@@ -1,6 +1,7 @@
 #include "Antrieb2Motor.h"
 #include <Arduino.h>
-#include "L298.h"
+
+Antrieb2Motor::Antrieb2Motor(){}
 
 Antrieb2Motor::Antrieb2Motor(int L_IN1, int L_IN2, int L_ENA, int R_IN1, int R_IN2, int R_ENA)
 {
@@ -11,6 +12,12 @@ Antrieb2Motor::Antrieb2Motor(int L_IN1, int L_IN2, int L_ENA, int R_IN1, int R_I
 Antrieb2Motor::~Antrieb2Motor()
 {
 
+}
+
+void Antrieb2Motor::setPins(const int L_IN1, const int L_IN2, const int L_ENA, const int R_IN1, const int R_IN2, const int R_ENA)
+{
+	LMotor.setPins(L_IN1, L_IN2, L_ENA);
+	RMotor.setPins(R_IN1, R_IN2, R_ENA);
 }
 
 // gerade Vorwaerts

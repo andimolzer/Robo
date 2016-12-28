@@ -9,21 +9,22 @@
 #endif
 
 #include <Servo.h>
+#include "globals.h"
 
 class Ultrasonic {
 private:
 	int _triggerPin, _echoPin, _servoPin;
-	float _distance;
 	Servo _servo;
 
 	/* ermittelt die Entfernung */
 	float distance(void);
 	
 	public:
+		Ultrasonic();
 		Ultrasonic(int TriggerPin, int EchoPin, int ServoPin);
+		void setPins(const int TriggerPin,const int EchoPin,const int ServoPin);
 		// scannt in gerader Linie (Servo 90°) und gibt 0/1 bei Hinderniss zurück
 		int Scan();
-
 		int CheckLR(void);
 
 };
