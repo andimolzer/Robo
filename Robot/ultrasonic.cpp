@@ -1,9 +1,6 @@
 #include <servo.h>
 #include "ultrasonic.h"
 
-
-
-
 Ultrasonic::Ultrasonic()
 {
 }
@@ -32,46 +29,52 @@ void Ultrasonic::setPins(const int TriggerPin, const int EchoPin, const int Serv
 	pinMode(_servoPin, OUTPUT);
 }
 
-float Ultrasonic::distance(void)
+int Ultrasonic::distance(void)
 {
-	float dist = 0.0;
+	int dist = 0;
 	digitalWrite(_triggerPin, LOW);
 	delayMicroseconds(2);
 	digitalWrite(_triggerPin, HIGH);
 	delayMicroseconds(20);
 	digitalWrite(_triggerPin, LOW);
-	dist = pulseIn(_echoPin, HIGH, SONIC_TIMEOUT) / 58;
-	return (float)dist;
+	dist=(int)pulseIn(_echoPin, HIGH, SONIC_TIMEOUT) / 58;
+	DEBUG_PRINT("Ultrasonic::distance: ");
+	DEBUG_PRINTLN(dist);
+	return dist;
 }
 
 int Ultrasonic::Scan(void)
 {	
-	float distance = 0.0;
+	int distance = 0;
 	distance = this->distance();
-	if(distance == 0.0)
-		return 0;
-	if (distance <= DANGER_RANGE)
-		return 1;
-	return 1;
+	if (distance <= DANGER_RANGE && distance!=0)
+		return ESCAPE;
+	return 0;
 }
 
 int Ultrasonic::CheckLR()
 {
-	int left, right;
+	DEBUG_PRINTLN("Utrasonic::CheckLR :");
+	
+	int left=0, right=0;
 	_servo.write(180);
-	delay(500);
-	left=(int)this->distance();
+	delay(500); /* wie lange braucht Servo ??*/
+	left=this->distance();
 	_servo.write(0);
-	delay(500);
-	right=(int)this->distance();
+	delay(500); /* wie lange braucht Servo ??*/
+	right=this->distance();
 	_servo.write(90);
+	DEBUG_PRINT("left: ");
+	DEBUG_PRINTLN(left);
+	DEBUG_PRINT("right: ");
+	DEBUG_PRINTLN(right);
 	if (left == 0 && right == 0)
-		return random(1, 2);
+		return random(ESCAPE_LEFT, ESCAPE_RIGHT);               // ausweichen links oder rechts
 	if (left !=0 && right !=0)
-		return 3;
+		return ESCAPE_BACK;						   // ausweichen nach hinten
 	if (left > right)
-		return 1;
+		return ESCAPE_LEFT;						   // ausweichen Links
 	else
-		return 2;
+		return ESCAPE_RIGHT;						   // ausweichen Rechts
 	return 0;
 }

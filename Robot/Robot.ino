@@ -2,16 +2,14 @@
 #include "globals.h"
 // #include <Servo.h>
 
-
-
-char incomingByte;
 DoRobot Robot;
 
 
 // the setup function runs once when you press reset or power the board
 void setup() {
+	randomSeed(analogRead(0));
 	Robot.init();
-	randomSeed(analogRead(0)); /* Zufallsgenerator starten */ 
+	/* Zufallsgenerator starten */ 
 }
 
 // the loop function runs over and over again forever

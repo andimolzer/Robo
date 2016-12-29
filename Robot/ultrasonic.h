@@ -17,7 +17,7 @@ private:
 	Servo _servo;
 
 	/* ermittelt die Entfernung */
-	float distance(void);
+	int distance(void);
 	
 	public:
 		Ultrasonic();

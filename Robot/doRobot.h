@@ -25,6 +25,11 @@ class DoRobot
 		char CheckSerial();
 
 		void ModeRemotecontrol();
+		void ModeAuto();
+		void ModeGoHome();
+		void ModeOff();
+		void doEscape(const int direction);
+
 
 	public:
 		DoRobot();

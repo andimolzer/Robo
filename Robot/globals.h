@@ -12,11 +12,21 @@
 #define DEBUG_PRINT(x)
 #define DEBUG_PRINTLN(x)
 #endif
-
 /**************************************************************************/
-/************************ Arbeitsmodi *************************************/
+/************************ Keys fuer BT (seriell) Remotecontrol ************/
 /**************************************************************************/
 
+#define KEY_FWD 'F'
+#define KEY_BWD 'B'
+#define KEY_LEFT 'L'
+#define KEY_RIGHT 'R'
+
+#define KEY_STOP 'S'
+
+#define KEY_MODE_AUTO 'A'
+#define KEY_MODE_REMOTE 'I'
+#define KEY_MODE_GOHOME 'H'
+#define KEY_MODE_OFF 'O'
 
 /**************************************************************************/
 /************************ Motorsteuerung **********************************/
@@ -44,8 +54,13 @@
 #define US_FS_SERVO_PIN 2
 #define US_FS_TRIGGER_PIN 9 // UltraSonicFrontSensor
 #define US_FS_ECHO_PIN 10
-#define SONIC_TIMEOUT 400  // millisikunden die wir maximal auf ein Echo warten, alles was grösser ist weit weg
-#define DANGER_RANGE 25.0  // ab welcher Entfernung in cm wird es gefaehrlich  ?
+#define SONIC_TIMEOUT 100  // millisikunden die wir maximal auf ein Echo warten, alles was grösser ist weit weg
+#define DANGER_RANGE 25    // ab welcher Entfernung in cm wird es gefaehrlich  ?
+
+#define ESCAPE 10
+#define ESCAPE_LEFT 1
+#define ESCAPE_RIGHT 2
+#define ESCAPE_BACK 3
 
 /*************************************************************************/
 /********************* Crash-Sensoren PINS *******************************/
