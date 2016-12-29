@@ -9,44 +9,24 @@
       <VCCodeMacros />
     </VCCodeModel>
     <BreakPoints>
-      <BreakPoint Index="1" Name="doRobot.cpp, Zeile 181" Id="c9f95968-9c7e-4ef4-a6a1-069ecf92c955" Enabled="0" Message="" MessageTextType="2" PreProcessedMessage="" Condition="modus==GO_HOME" ConditionType="1" CurrentHits="0" File="d:\!github\robot\robo\robot\dorobot.cpp" FileLine="181" FileColumn="1" FunctionName="run()" FunctionLineOffset="15" FunctionColumnOffset="1" HitCountTarget="1" HitCountType="1" Language="C++" LocationType="3" Tag="&lt;vmbp Id='c9f95968-9c7e-4ef4-a6a1-069ecf92c955'/&gt;" Type="1" ToString="System.__ComObject" BreakWhenHit="1">
-        <Source>174			break;
-175			case AUTO:
-176				DEBUG_PRINTLN("im Modus AUTO");
-177				ModeAuto();
-178			break;
-179			case GO_HOME:
-180				DEBUG_PRINTLN("im Modus GO_HOME");
---&gt;181				ModeGoHome();
-182				break;
-183			case OFF:
-184				DEBUG_PRINTLN("im Modus OFF");
-185				ModeOff();
-186				break;
-187			default:
-188				break;
-189			}
-190		}
-</Source>
-      </BreakPoint>
-      <BreakPoint Index="2" Name="doRobot.cpp, Zeile 81" Id="293c7634-2265-42f3-ba5d-103e00163af5" Enabled="1" Message="wert von instruction (instruction)" MessageTextType="0" PreProcessedMessage="wert von instruction (instruction)" Condition="" ConditionType="1" CurrentHits="0" File="d:\!github\robot\robo\robot\dorobot.cpp" FileLine="81" FileColumn="1" FunctionName="ModeGoHome()" FunctionLineOffset="3" FunctionColumnOffset="1" HitCountTarget="1" HitCountType="1" Language="C++" LocationType="3" Tag="&lt;vmbp Id='293c7634-2265-42f3-ba5d-103e00163af5'/&gt;" Type="1" ToString="System.__ComObject" BreakWhenHit="0">
-        <Source>74		}
-75	
-76	}
-77	
-78	void DoRobot::ModeGoHome()
-79	{
-80		char instruction = CheckSerial();
---&gt;81		if (modus != GO_HOME) {
-82			Vorderachse.Stop();
-83			return;
-84		}
-85	
-86	}
-87	
-88	void DoRobot::ModeOff()
-89	{
-90		char instruction = CheckSerial();
+      <BreakPoint Index="1" Name="doRobot.cpp, Zeile 160" Id="293c7634-2265-42f3-ba5d-103e00163af5" Enabled="1" Message="wert von instruction (instruction)" MessageTextType="0" PreProcessedMessage="wert von instruction (instruction)" Condition="" ConditionType="1" CurrentHits="0" File="d:\!github\robot\robo\robot\dorobot.cpp" FileLine="160" FileColumn="1" FunctionName="ModeGoHome()" FunctionLineOffset="3" FunctionColumnOffset="1" HitCountTarget="1" HitCountType="1" Language="C++" LocationType="3" Tag="&lt;vmbp Id='293c7634-2265-42f3-ba5d-103e00163af5'/&gt;" Type="1" ToString="System.__ComObject" BreakWhenHit="0">
+        <Source>153			doEscape(FrontSensor.CheckLR());
+154		}
+155	}
+156	
+157	void DoRobot::ModeGoHome()
+158	{
+159		CheckSerial();
+--&gt;160		if (modus != GO_HOME) {
+161			Vorderachse.Stop();
+162			return;
+163		}
+164	
+165	}
+166	
+167	void DoRobot::ModeOff()
+168	{
+169		CheckSerial();
 </Source>
       </BreakPoint>
     </BreakPoints>

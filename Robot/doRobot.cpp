@@ -1,5 +1,64 @@
 #include "doRobot.h"
 
+DoRobot::DoRobot()
+{
+	Vorderachse.setPins(MOTOR_IN_1, MOTOR_IN_2, MOTOR_IN_ENA, MOTOR_IN_3, MOTOR_IN_4, MOTOR_IN_ENB);
+	Vorderachse.Stop();
+	FrontSensor.setPins(US_FS_TRIGGER_PIN, US_FS_ECHO_PIN, US_FS_SERVO_PIN);
+	modus = AUTO;
+	Serial.begin(BAUD);
+	Serial1.begin(BAUD);
+	Serial2.begin(BAUD);
+	Serial3.begin(BAUD);
+}
+
+void DoRobot::init()
+{
+
+}
+
+//------------------------------------------------------------------
+// Function:     run()
+// Class:        DoRobot
+// Description:  Hauptschleife des Roboters
+// Returns:      -
+//
+// Created:      2016-12-29 (14:33), by Andreas Moelzer
+//------------------------------------------------------------------
+void DoRobot::run()
+{
+	while (1) {
+		CheckSerial();
+		switch (modus) {
+		case BT_REMOTE:
+			DEBUG_PRINTLN("in Modus BT_REMOTE");
+			ModeRemotecontrol();
+			break;
+		case AUTO:
+			DEBUG_PRINTLN("im Modus AUTO");
+			ModeAuto();
+			break;
+		case GO_HOME:
+			DEBUG_PRINTLN("im Modus GO_HOME");
+			ModeGoHome();
+			break;
+		case OFF:
+			DEBUG_PRINTLN("im Modus OFF");
+			ModeOff();
+			break;
+		case CHARGING:
+			DEBUG_PRINTLN("im LadeModus");
+			// TODO Methode Charging erstellen
+		case AT_HOME:
+			DEBUG_PRINTLN("gelangweilt daheim");
+			// Todo: Methode gelangweilt daheim erstellen
+			break;
+		default:
+			break;
+		}
+	}
+}
+
 char DoRobot::CheckSerial()
 {
 	char incomingByte = 0;
@@ -49,13 +108,34 @@ void DoRobot::ModeRemotecontrol()
 	char instruction = CheckSerial();
 	if (modus != BT_REMOTE)
 		return;
-	delay(200);
 
-	
+	switch (toupper(instruction)) {
+		case KEY_FWD :
+			Vorderachse.Forward(100);
+			break;
+		case KEY_BWD :
+			Vorderachse.Backward(100);
+			break;
+		case KEY_LEFT:
+			Vorderachse.TurnLeft(100);
+			// Todo: Methode CurveLeft in Antrieb2Motor implementieren ??
+			break;
+		case KEY_RIGHT:
+			Vorderachse.TurnRight(100);
+			break;
+		case KEY_STOP:
+			Vorderachse.Stop();
+			break;
+		default:
+			break;
+	}
+	instruction = 0;
+	// Todo: Code überprüfen in RemoteControl
 }
 
 void DoRobot::ModeAuto()
 {
+	// Todo: Funktionalität der ModeAuto uberprüfen
 	int x = 0;
 	CheckSerial();
 	if (modus != AUTO) {
@@ -76,7 +156,7 @@ void DoRobot::ModeAuto()
 
 void DoRobot::ModeGoHome()
 {
-	char instruction = CheckSerial();
+	CheckSerial();
 	if (modus != GO_HOME) {
 		Vorderachse.Stop();
 		return;
@@ -86,17 +166,18 @@ void DoRobot::ModeGoHome()
 
 void DoRobot::ModeOff()
 {
-	char instruction = CheckSerial();
+	CheckSerial();
 	if (modus != OFF) {
 		return;
 	}
 	Vorderachse.Stop();
+	// TODO: Methode ModeOFF vervollständigen
 	
-	// Mähmotor off
 }
 
 void DoRobot::doEscape(const int direction)
 {
+	// TODO: doEscape auf Herz und Nieren prüfen
 	int x = 0;
 	switch (direction) {
 		case ESCAPE_LEFT:
@@ -142,55 +223,8 @@ void DoRobot::doEscape(const int direction)
 	}
 }
 
-DoRobot::DoRobot()
-{
-	Vorderachse.setPins(MOTOR_IN_1, MOTOR_IN_2, MOTOR_IN_ENA, MOTOR_IN_3, MOTOR_IN_4, MOTOR_IN_ENB);
-	Vorderachse.Stop();
-	FrontSensor.setPins(US_FS_TRIGGER_PIN, US_FS_ECHO_PIN, US_FS_SERVO_PIN);
-	modus = AUTO;
-	Serial.begin(BAUD);
-	Serial1.begin(BAUD);
-	Serial2.begin(BAUD);
-	Serial3.begin(BAUD);
-}
 
-void DoRobot::init()
-{
 
-}
 
-//------------------------------------------------------------------
-// Function:     run()
-// Class:        DoRobot
-// Description:  Hauptschleife des Roboters
-// Returns:      -
-//
-// Created:      2016-12-29 (14:33), by Andreas Moelzer
-//------------------------------------------------------------------
 
-void DoRobot::run()
-{
-	while (1) {
-		CheckSerial();
-		switch (modus) {
-		case BT_REMOTE:
-			DEBUG_PRINTLN("in Modus BT_REMOTE");
-			ModeRemotecontrol();
-		break;
-		case AUTO:
-			DEBUG_PRINTLN("im Modus AUTO");
-			ModeAuto();
-		break;
-		case GO_HOME:
-			DEBUG_PRINTLN("im Modus GO_HOME");
-			ModeGoHome();
-			break;
-		case OFF:
-			DEBUG_PRINTLN("im Modus OFF");
-			ModeOff();
-			break;
-		default:
-			break;
-		}
-	}
-}
+
