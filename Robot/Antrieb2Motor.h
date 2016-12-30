@@ -28,14 +28,16 @@ public:
 	void Stop();
 	// Linksturn
 	void TurnLeft(int millisec);
-		// Rechtsturn
+	// Rechtsturn
 	void TurnRight(int millisec);
+	// Kurve links
+	void CurveLeft(const int procent);
+	// Kurve rechts
+	void CurveRight(const int procent);
 	// Geswindigkeit setzen
 	void setSpeed(int newspeed);
 	// gibt den aktuellen Bewegungsstatus retour
 	int getStatus(void);
-
 };
 
 #endif // __Antrieb2Motor__
-

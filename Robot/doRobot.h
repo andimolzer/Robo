@@ -36,8 +36,4 @@ class DoRobot
 		void init();
 		void run();
 };
-
-
-
 #endif
-

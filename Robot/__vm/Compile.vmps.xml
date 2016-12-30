@@ -9,24 +9,24 @@
       <VCCodeMacros />
     </VCCodeModel>
     <BreakPoints>
-      <BreakPoint Index="1" Name="doRobot.cpp, Zeile 160" Id="293c7634-2265-42f3-ba5d-103e00163af5" Enabled="1" Message="wert von instruction (instruction)" MessageTextType="0" PreProcessedMessage="wert von instruction (instruction)" Condition="" ConditionType="1" CurrentHits="0" File="d:\!github\robot\robo\robot\dorobot.cpp" FileLine="160" FileColumn="1" FunctionName="ModeGoHome()" FunctionLineOffset="3" FunctionColumnOffset="1" HitCountTarget="1" HitCountType="1" Language="C++" LocationType="3" Tag="&lt;vmbp Id='293c7634-2265-42f3-ba5d-103e00163af5'/&gt;" Type="1" ToString="System.__ComObject" BreakWhenHit="0">
-        <Source>153			doEscape(FrontSensor.CheckLR());
-154		}
-155	}
-156	
-157	void DoRobot::ModeGoHome()
-158	{
-159		CheckSerial();
---&gt;160		if (modus != GO_HOME) {
-161			Vorderachse.Stop();
-162			return;
-163		}
-164	
-165	}
-166	
-167	void DoRobot::ModeOff()
-168	{
-169		CheckSerial();
+      <BreakPoint Index="1" Name="doRobot.cpp, Zeile 165" Id="293c7634-2265-42f3-ba5d-103e00163af5" Enabled="1" Message="wert von instruction (instruction)" MessageTextType="0" PreProcessedMessage="wert von instruction (instruction)" Condition="" ConditionType="1" CurrentHits="0" File="d:\!github\robot\robo\robot\dorobot.cpp" FileLine="165" FileColumn="1" FunctionName="ModeGoHome()" FunctionLineOffset="3" FunctionColumnOffset="1" HitCountTarget="1" HitCountType="1" Language="C++" LocationType="3" Tag="&lt;vmbp Id='293c7634-2265-42f3-ba5d-103e00163af5'/&gt;" Type="1" ToString="System.__ComObject" BreakWhenHit="0">
+        <Source>158		}
+159	//	x= Bumper.scan()
+160	}
+161	
+162	void DoRobot::ModeGoHome()
+163	{
+164		CheckSerial();
+--&gt;165		if (modus != GO_HOME) {
+166			Vorderachse.Stop();
+167			return;
+168		}
+169	
+170	}
+171	
+172	void DoRobot::ModeOff()
+173	{
+174		CheckSerial();
 </Source>
       </BreakPoint>
     </BreakPoints>

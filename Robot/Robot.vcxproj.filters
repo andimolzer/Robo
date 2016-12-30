@@ -141,6 +141,9 @@
     <ClInclude Include="doRobot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CrashSensor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Antrieb2Motor.cpp">
@@ -237,6 +240,9 @@
       <Filter>src\_micro-api-readonly\libraries\Servo\src\samd</Filter>
     </ClCompile>
     <ClCompile Include="doRobot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CrashSensor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

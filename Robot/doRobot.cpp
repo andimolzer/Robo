@@ -112,19 +112,23 @@ void DoRobot::ModeRemotecontrol()
 	switch (toupper(instruction)) {
 		case KEY_FWD :
 			Vorderachse.Forward(100);
+			DEBUG_PRINTLN("ModeRemotecontrol: Forward");
 			break;
 		case KEY_BWD :
 			Vorderachse.Backward(100);
+			DEBUG_PRINTLN("ModeRemotecontrol: Backward");
 			break;
 		case KEY_LEFT:
-			Vorderachse.TurnLeft(100);
-			// Todo: Methode CurveLeft in Antrieb2Motor implementieren ??
+			Vorderachse.CurveLeft(5);
+			DEBUG_PRINTLN("ModeRemotecontrol: Left");
 			break;
 		case KEY_RIGHT:
-			Vorderachse.TurnRight(100);
+			Vorderachse.CurveRight(5);
+			DEBUG_PRINTLN("ModeRemotecontrol: Right");
 			break;
 		case KEY_STOP:
 			Vorderachse.Stop();
+			DEBUG_PRINTLN("ModeRemotecontrol: Stop");
 			break;
 		default:
 			break;
@@ -152,6 +156,7 @@ void DoRobot::ModeAuto()
 		Vorderachse.Stop();
 		doEscape(FrontSensor.CheckLR());
 	}
+//	x= Bumper.scan()
 }
 
 void DoRobot::ModeGoHome()
@@ -222,9 +227,3 @@ void DoRobot::doEscape(const int direction)
 			break;
 	}
 }
-
-
-
-
-
-
