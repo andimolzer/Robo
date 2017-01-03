@@ -52,10 +52,10 @@
 /*************************************************************************/
 
 #define US_FS_SERVO_PIN 2
-#define US_FS_TRIGGER_PIN 9 // UltraSonicFrontSensor
-#define US_FS_ECHO_PIN 10
-#define SONIC_TIMEOUT 100  // millisikunden die wir maximal auf ein Echo warten, alles was grösser ist weit weg
-#define DANGER_RANGE 25    // ab welcher Entfernung in cm wird es gefaehrlich  ?
+#define US_FS_TRIGGER_PIN 32 // UltraSonicFrontSensor
+#define US_FS_ECHO_PIN 33
+#define SONIC_TIMEOUT 4000  // millisikunden die wir maximal auf ein Echo warten, alles was grösser ist weit weg
+#define DANGER_RANGE 9   // ab welcher Entfernung in cm wird es gefaehrlich  ?
 
 #define ESCAPE 10
 #define ESCAPE_LEFT 1

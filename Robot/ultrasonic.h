@@ -8,8 +8,9 @@
 	#include "WProgram.h"
 #endif
 
-#include <Servo.h>
 #include "globals.h"
+#include <Servo.h>
+
 
 class Ultrasonic {
 private:

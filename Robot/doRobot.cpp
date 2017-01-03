@@ -2,19 +2,18 @@
 
 DoRobot::DoRobot()
 {
-	Vorderachse.setPins(MOTOR_IN_1, MOTOR_IN_2, MOTOR_IN_ENA, MOTOR_IN_3, MOTOR_IN_4, MOTOR_IN_ENB);
-	Vorderachse.Stop();
-	FrontSensor.setPins(US_FS_TRIGGER_PIN, US_FS_ECHO_PIN, US_FS_SERVO_PIN);
-	modus = AUTO;
-	Serial.begin(BAUD);
-	Serial1.begin(BAUD);
-	Serial2.begin(BAUD);
-	Serial3.begin(BAUD);
 }
 
 void DoRobot::init()
 {
-
+   FrontSensor.setPins(US_FS_TRIGGER_PIN, US_FS_ECHO_PIN, US_FS_SERVO_PIN);
+   Vorderachse.setPins(MOTOR_IN_1, MOTOR_IN_2, MOTOR_IN_ENA, MOTOR_IN_3, MOTOR_IN_4, MOTOR_IN_ENB);
+   Vorderachse.Stop();
+   modus = AUTO;
+   Serial.begin(BAUD);
+   Serial1.begin(BAUD);
+   Serial2.begin(BAUD);
+   Serial3.begin(BAUD);
 }
 
 //------------------------------------------------------------------
@@ -100,6 +99,7 @@ char DoRobot::CheckSerial()
 			break;
 		}
 	}
+
 	return incomingByte;
 }
 
@@ -142,6 +142,7 @@ void DoRobot::ModeAuto()
 	// Todo: Funktionalität der ModeAuto uberprüfen
 	int x = 0;
 	CheckSerial();
+	DEBUG_PRINTLN("DoRobot::ModeAuto");
 	if (modus != AUTO) {
 		Vorderachse.Stop();
 		return;

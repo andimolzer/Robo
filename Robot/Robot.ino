@@ -1,5 +1,4 @@
 #include "doRobot.h"
-#include "globals.h"
 
 DoRobot Robot;
 

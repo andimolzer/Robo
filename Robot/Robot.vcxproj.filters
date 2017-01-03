@@ -32,19 +32,19 @@
       <UniqueIdentifier>{612b920b-9d17-4c2a-aa5a-c8f30fcf3add}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\_micro-api-readonly\libraries\Servo">
-      <UniqueIdentifier>{afd8a5b6-3f99-4030-b9ed-4f5662632eee}</UniqueIdentifier>
+      <UniqueIdentifier>{4df23c45-0cf7-4b8d-9367-fd824df1f1e5}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\_micro-api-readonly\libraries\Servo\src">
-      <UniqueIdentifier>{6d6b744e-5f79-4940-a061-54d3ba1bebd5}</UniqueIdentifier>
+      <UniqueIdentifier>{8859b27e-ed7b-44d5-ad37-181148885a6f}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\_micro-api-readonly\libraries\Servo\src\avr">
-      <UniqueIdentifier>{ea51715d-7b5d-43fe-9334-ab5019173ddf}</UniqueIdentifier>
+      <UniqueIdentifier>{699074f1-b474-4394-852e-1d98caf478e1}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\_micro-api-readonly\libraries\Servo\src\sam">
-      <UniqueIdentifier>{dc4c55e2-7a8d-4010-ba21-e30816eaea8f}</UniqueIdentifier>
+      <UniqueIdentifier>{d0442ea2-d166-4372-96c4-0347f7be84f5}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\_micro-api-readonly\libraries\Servo\src\samd">
-      <UniqueIdentifier>{e9aea0fc-3e3a-4c47-a69c-0a6857c65b3f}</UniqueIdentifier>
+      <UniqueIdentifier>{3f50ba8a-58dd-41f1-bcaf-d1e010a189b0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -126,6 +126,12 @@
     <ClInclude Include="functions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="doRobot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CrashSensor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="C:\Program Files (x86)\Arduino\libraries\Servo\src\Servo.h">
       <Filter>src\_micro-api-readonly\libraries\Servo\src</Filter>
     </ClInclude>
@@ -137,12 +143,6 @@
     </ClInclude>
     <ClInclude Include="C:\Program Files (x86)\Arduino\libraries\Servo\src\samd\ServoTimers.h">
       <Filter>src\_micro-api-readonly\libraries\Servo\src\samd</Filter>
-    </ClInclude>
-    <ClInclude Include="doRobot.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CrashSensor.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -230,6 +230,12 @@
     <ClCompile Include="functions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="doRobot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CrashSensor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Program Files (x86)\Arduino\libraries\Servo\src\avr\Servo.cpp">
       <Filter>src\_micro-api-readonly\libraries\Servo\src\avr</Filter>
     </ClCompile>
@@ -238,12 +244,6 @@
     </ClCompile>
     <ClCompile Include="C:\Program Files (x86)\Arduino\libraries\Servo\src\samd\Servo.cpp">
       <Filter>src\_micro-api-readonly\libraries\Servo\src\samd</Filter>
-    </ClCompile>
-    <ClCompile Include="doRobot.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CrashSensor.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
