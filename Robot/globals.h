@@ -6,8 +6,8 @@
 #define DEBUG /* Debugging ON/OFF */
 
 #ifdef DEBUG
-#define DEBUG_PRINT(x)  Serial.print(x); Serial1.print(x)
-#define DEBUG_PRINTLN(x)  Serial.println(x); Serial1.println(x)
+#define DEBUG_PRINT(x)  delay(500); Serial.print(x); Serial1.print(x)
+#define DEBUG_PRINTLN(x)  delay(500); Serial.println(x); Serial1.println(x)
 #else
 #define DEBUG_PRINT(x)
 #define DEBUG_PRINTLN(x)
@@ -75,6 +75,6 @@
 /*************************************************************************/
 
 #define PAUSE 1000
-#define BAUD 19200
+#define BAUD 115200
 
 #endif // __GLOBALS_H__

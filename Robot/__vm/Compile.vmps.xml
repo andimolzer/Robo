@@ -8,6 +8,27 @@
     <VCCodeModel>
       <VCCodeMacros />
     </VCCodeModel>
-    <BreakPoints />
+    <BreakPoints>
+      <BreakPoint Index="1" Name="ultrasonic.cpp, Zeile 84" Id="5f752ba7-b2f1-435f-b3f7-709d4e649600" Enabled="1" Message="" MessageTextType="2" PreProcessedMessage="" Condition="" ConditionType="1" CurrentHits="0" File="d:\!github\robot\robo\robot\ultrasonic.cpp" FileLine="84" FileColumn="1" FunctionName="CheckLR()" FunctionLineOffset="28" FunctionColumnOffset="1" HitCountTarget="1" HitCountType="1" Language="C++" LocationType="3" Tag="&lt;vmbp Id='5f752ba7-b2f1-435f-b3f7-709d4e649600'/&gt;" Type="1" ToString="System.__ComObject" BreakWhenHit="1">
+        <Source>77		if ((left &gt; DANGER_RANGE || left==0) &amp;&amp; (right &gt;DANGER_RANGE || right == 0)) {
+78			int x;
+79			DEBUG_PRINT("LINKS ODER RECHTS ");
+80			x = random(ESCAPE_LEFT, ESCAPE_RIGHT); 	// ausweichen links oder rechts
+81			DEBUG_PRINTLN(x);
+82			return x;
+83		}
+--&gt;84		if (left != 0 &amp;&amp; right != 0 &amp;&amp; left &lt;= DANGER_RANGE &amp;&amp; right &lt;= DANGER_RANGE) {
+85			DEBUG_PRINTLN(ESCAPE_BACK);
+86			return ESCAPE_BACK;
+87		}// ausweichen nach hinten
+88		if (left &gt; right &amp;&amp; right !=0) {
+89			DEBUG_PRINTLN(ESCAPE_LEFT);
+90			return ESCAPE_LEFT;
+91		}// ausweichen Links
+92		else {
+93			DEBUG_PRINTLN(ESCAPE_RIGHT);
+</Source>
+      </BreakPoint>
+    </BreakPoints>
   </Program>
 </VisualMicro>

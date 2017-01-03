@@ -56,29 +56,43 @@ int Ultrasonic::Scan(void)
 int Ultrasonic::CheckLR()
 {
 	DEBUG_PRINTLN("Utrasonic::CheckLR :");
-	
-	int left=0, right=0;
+
+	int left = 0, right = 0; 
 	_servo.write(170);
 	DEBUG_PRINTLN("SERVO 180");
 	delay(800); /* wie lange braucht Servo ??*/
-	left=this->distance();
+	left = this->distance();
 	_servo.write(10);
 	DEBUG_PRINTLN("SERVO 0");
 	delay(1200); /* wie lange braucht Servo ??*/
-	right=this->distance();
+	right = this->distance();
 	_servo.write(90);
 	DEBUG_PRINTLN("SERVO 90");
 	DEBUG_PRINT("left: ");
 	DEBUG_PRINTLN(left);
 	DEBUG_PRINT("right: ");
 	DEBUG_PRINTLN(right);
-	if (left == 0 && right == 0)
-		return random(ESCAPE_LEFT, ESCAPE_RIGHT);               // ausweichen links oder rechts
-	if (left !=0 && right !=0 && left <= DANGER_RANGE && right <= DANGER_RANGE)
-		return ESCAPE_BACK;						   // ausweichen nach hinten
-	if (left > right)
-		return ESCAPE_LEFT;						   // ausweichen Links
-	else
-		return ESCAPE_RIGHT;						   // ausweichen Rechts
+	DEBUG_PRINT("Ultrasonic::CheckLR: ");
+
+	if ((left > DANGER_RANGE || left==0) && (right >DANGER_RANGE || right == 0)) {
+		int x;
+		DEBUG_PRINT("LINKS ODER RECHTS ");
+		x = random(ESCAPE_LEFT, ESCAPE_RIGHT); 	// ausweichen links oder rechts
+		DEBUG_PRINTLN(x);
+		return x;
+	}
+	if (left != 0 && right != 0 && left <= DANGER_RANGE && right <= DANGER_RANGE) {
+		DEBUG_PRINTLN(ESCAPE_BACK);
+		return ESCAPE_BACK;
+	}// ausweichen nach hinten
+	if (left > right && right !=0) {
+		DEBUG_PRINTLN(ESCAPE_LEFT);
+		return ESCAPE_LEFT;
+	}// ausweichen Links
+	else {
+		DEBUG_PRINTLN(ESCAPE_RIGHT);
+		return ESCAPE_RIGHT;
+	}// ausweichen Rechts
+	DEBUG_PRINTLN("WERD doch keine 0 zurückgeben ???");
 	return 0;
 }
