@@ -1,4 +1,5 @@
 #include "CrashSensor.h"
+#include <Arduino.h>
 #include "globals.h"
 
 CrashSensor::CrashSensor()
