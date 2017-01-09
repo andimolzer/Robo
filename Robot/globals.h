@@ -3,11 +3,11 @@
 //#include "Antrieb2Motor.h";
 //#include "ultrasonic.h";
 
-#define DEBUG /* Debugging ON/OFF */
+// #define DEBUG /* Debugging ON/OFF */
 
 #ifdef DEBUG
-#define DEBUG_PRINT(x)  delay(500); Serial.print(x); Serial1.print(x)
-#define DEBUG_PRINTLN(x)  delay(500); Serial.println(x); Serial1.println(x)
+#define DEBUG_PRINT(x) /* delay(500);*/ Serial.print(x); Serial1.print(x)
+#define DEBUG_PRINTLN(x)  /* delay(500);*/ Serial.println(x); Serial1.println(x)
 #else
 #define DEBUG_PRINT(x)
 #define DEBUG_PRINTLN(x)
@@ -55,7 +55,7 @@
 #define US_FS_TRIGGER_PIN 32 // UltraSonicFrontSensor
 #define US_FS_ECHO_PIN 33
 #define SONIC_TIMEOUT 4000  // millisikunden die wir maximal auf ein Echo warten, alles was grösser ist weit weg
-#define DANGER_RANGE 9   // ab welcher Entfernung in cm wird es gefaehrlich  ?
+#define DANGER_RANGE 15  // ab welcher Entfernung in cm wird es gefaehrlich  ?
 
 #define ESCAPE 10
 #define ESCAPE_LEFT 1
